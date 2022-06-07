@@ -1,0 +1,53 @@
+<mvc:View
+    controllerName="project1.controller.View6"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page  title="{i18n>PaymentTitle}" titleAlignment="Center" id="payment">
+  <content>
+  
+                <f:SimpleForm 
+                id="SimpleFormChange354"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+                <Label text="Card Number"  required="true"/>
+                <Input id="cd"
+               placeholder="XXXX-XXXX-XXXX-XXXX" 
+               width="200px">	
+                    </Input>
+                    <Label text="Expiry Date"  required="true" />
+                <Input id="exp" placeholder="XX/XX" width="80px">	
+                    </Input>
+                    <Label text="CVV No."  required="true"/>
+                <Input id="Cvv" placeholder="XXX" width="60px">	
+                    </Input><Label text="Card Holder Name"  required="true" />
+                <Input id="chn" >	
+                    </Input>
+                     <Button text="Pay" press="onPay" icon="sap-icon://save">
+                </Button>
+                    </f:content>
+                    </f:SimpleForm>
+                   
+                    </content>
+                   
+                    </Page>
+</mvc:View>

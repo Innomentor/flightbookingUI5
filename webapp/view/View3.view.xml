@@ -1,0 +1,56 @@
+<mvc:View
+    controllerName="project1.controller.View3"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+    xmlns="sap.m"   
+>
+<Page>
+<content>
+  <Text text="Filter Price Range" class="sapUiSmallMarginBottom" />
+		<RangeSlider showAdvancedTooltip="true" enableTickmarks="true" step="1000" range="2000,15000" min="1500" max="15000" class="sapUiMediumMarginBottom"/>
+
+<Table id="tableID" items="{/booking}" alternateRowColors="true" headerText="Your Flights"  >
+
+
+                <columns>
+                    <Column>
+                        <Text id="101" text="Flight Name" />
+                    </Column>
+                    <Column>
+                        <Text id="102" text="From" />
+                    </Column>
+                    <Column>
+                        <Text id="103" text="Destination" />
+                    </Column>
+                    <Column>
+                        <Text id="104" text="Departure" />
+                    </Column>
+                    <Column>
+                        <Text id="105" text="Arrival" />
+                    </Column>
+                    <Column>
+                        <Text id="106" text="Price (Rs.)" />
+                    </Column>
+                    
+                    
+                </columns>
+                <items>
+              
+                    <ColumnListItem type="Navigation" press="onChangeHeader" id="ValueID">
+                        <Text text="{aflights>fname}"/> 
+                        <Text text="{aflights>from}"/>
+                        <Text text="{aflights>destination}"/>
+                        <Text text="{aflights>departure}"/>
+                        <Text text="{aflights>arrival}"/>
+                        <Text text="{aflights>price}"/>
+                       
+                    </ColumnListItem>
+                </items>
+            </Table>
+            </content>
+            </Page>
+</mvc:View>

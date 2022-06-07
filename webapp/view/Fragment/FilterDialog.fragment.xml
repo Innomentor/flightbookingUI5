@@ -1,0 +1,40 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleFilterDialogConfirm" resetFilters="handleResetFilters">
+		<filterItems>
+			
+			<ViewSettingsFilterItem
+				text="Price"
+				key="price"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="Less Than 10000" key="price___LE___10000___X" />
+					<ViewSettingsItem text="Between 10000 and 12000" key="price___BT___10000___12000" />
+					<ViewSettingsItem text="More Than 12000" key="price___GT___12000___X" />
+				</items>
+			</ViewSettingsFilterItem>
+            <ViewSettingsFilterItem
+				text="Departure"
+				key="departure"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="Less Than 1200" key="departure___LE___1200___X" />
+					<ViewSettingsItem text="Between 1200 and 1500" key="departure___BT___1200___1500" />
+					<ViewSettingsItem text="More Than 1500" key="departure___GT___1500___X" />
+				</items>
+			</ViewSettingsFilterItem>
+             <ViewSettingsFilterItem
+				text="Arrival"
+				key="arrival"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="Less Than 1200" key="arrival___LE___1200___X" />
+					<ViewSettingsItem text="Between 1200 and 1500" key="arrival___BT___1200___1500" />
+					<ViewSettingsItem text="More Than 1500" key="arrival___GT___1500___X" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

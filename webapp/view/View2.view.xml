@@ -1,0 +1,473 @@
+<mvc:View
+    controllerName="project1.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    displayBlock="true"
+    xmlns="sap.m"
+    height="100%"
+><tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				
+				<ToolbarSpacer width="20px" />
+				<ToolbarSpacer />
+				<core:Icon src="sap-icon://approvals">
+				</core:Icon>
+				<Text text="{i18n>ELAPS}" wrapping="false">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Disappear" />
+					</layoutData>
+				</Text>
+				<ToolbarSpacer />
+			
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation id="sideNavigation" 
+				>
+                   
+					<tnt:NavigationList id= "navList" selectedKey="Bookings">
+							<tnt:NavigationListItem text="{i18n>homePageTitle}" class="sapUiSmallMarginBottom" select="onUBookings" key="Bookings"/>
+                        <tnt:NavigationListItem class="sapUiSmallMarginTop" text="Your Flights" key="yourflights" />
+                         <tnt:NavigationListItem text="Select Your Seats"  key="selectseats"/>
+                         <tnt:NavigationListItem text="Traveller's Details"  key="selectdetails" />
+						<tnt:NavigationListItem text="Payment Details"  key="selectpayment" />
+					</tnt:NavigationList>
+				
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="navCon">
+            
+			<Page id="flight">
+  <customHeader>
+			<Bar>
+				<contentLeft>
+				</contentLeft>
+				<contentMiddle>
+</contentMiddle>
+				<contentRight>
+				<Button text="My Profile" press="onPressButton" class="sapUiLargeMarginLeft" width="200px" icon="sap-icon://account"/>	
+				</contentRight>
+			</Bar>
+		</customHeader>
+ <content>
+<List id="items" >
+ <CustomListItem>
+  <VBox class="sapUiSmallMargin">
+    <f:SimpleForm id="SimpleFormChange354"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="10"
+			adjustLabelSpan="false"
+			emptySpanXL="3"
+			emptySpanL="3"
+			emptySpanM="3"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" 
+            >
+            
+			<f:content>
+            <VBox alignItems="Center" height="100%" >
+            <HBox height="120%" alignItems="Center">
+              <VBox>	
+           	<Label text="From" />
+                <ComboBox id="from"  width= "25rem"  change="onLiveChange" required="true" items="{locationsModel>/results}">
+					<!-- <items> -->
+						<core:Item text="{locationsModel>from}" key="{locationsModel>from}" />
+						<!-- <core:Item text="Mumbai" key="Mumbai"/>
+                        <core:Item text="Bangalore" key="Bangalore"/> -->
+					<!-- </items> -->
+				</ComboBox>
+               <Label text="Destination" /> 
+               <ComboBox id="destination" width= "25rem"  change="onLiveChange"  required="true" items="{locationsModel>/results}" >
+					<!-- <items> -->
+						<core:Item text="{locationsModel>destination}" key="{locationsModel>destination}"/>
+						<!-- <core:Item text="Mumbai" key="Mumbai"/>
+                        <core:Item text="Bangalore" key="Bangalore"/>
+                        </items> -->
+				</ComboBox>
+               
+				
+              
+				<Label text="Travellers" />
+				<ComboBox id="travellers"  width= "25rem" required="true">
+					<items>
+						<core:Item text="1" key="1"/>
+						<core:Item text="2" key="2"/>
+                        <core:Item text="3" key="3"/>
+                        <core:Item text="4" key="4"/>
+                        <core:Item text="5" key="5"/>
+					</items>
+				</ComboBox>
+                <Label/>
+               	
+       	<Label text="Date:" labelFor="DP6"  required="true"/>
+		<DatePicker
+			id="DP6"
+			displayFormat="short"
+			change="handleChange"
+			class="sapUiSmallMarginBottom"
+            width="25rem" />
+            
+                <Label text="Class" />
+				<ComboBox id="class"  width= "25rem" required="true" >
+					<items>
+						<core:Item text="Economy" key="Economy"/>
+					</items>
+				</ComboBox>
+               
+                <HBox>
+    <Button text="Search" width= "12rem" press="handleResetFilters" icon="sap-icon://save" class="sapUiSmallMarginEnd" > </Button>
+    <Button type="Reject" width= "12rem"  text="Reset" icon="sap-icon://reset" press="onPressResetButton"></Button>
+    </HBox>
+    </VBox>
+    </HBox>
+           </VBox>    
+               
+			</f:content>
+		</f:SimpleForm>
+        </VBox>
+        </CustomListItem>
+        	</List>
+</content>
+    </Page>
+
+			<Page id="flights" title="Select Your Flight" titleAlignment="Center">
+             <customHeader>
+			<Bar>
+				<contentLeft>
+                <Button text="Previous Page" press="onPressPrevious1" class="sapUiLargeMarginLeft" width="200px" icon="sap-icon://nav-back"/>
+				</contentLeft>
+				<contentMiddle>
+</contentMiddle>
+				<contentRight>
+				<Button text="My Profile" press="onPressButton" class="sapUiLargeMarginLeft" width="200px" icon="sap-icon://account"/>	
+				</contentRight>
+			</Bar>
+		</customHeader>
+<content>
+  
+		
+	
+<Table id="tableID" items="{/booking}" alternateRowColors="true" headerText="Your Flights"  >
+	<headerToolbar>
+					<OverflowToolbar>
+	<Button
+							tooltip="Filter"
+							icon="sap-icon://filter"
+							press="handleFilterButtonPressed"
+                            class="sapUiLargeMarginLeft"/>
+                            	<Button
+							tooltip="Sort"
+							icon="sap-icon://sort"
+							press="handleSortButtonPressed"
+                            class="sapUiLargeMarginLeft"/>
+	</OverflowToolbar>
+				</headerToolbar>
+                <columns>
+                    <Column>
+                        <Text id="101" text="Flight Name" />
+                    </Column>
+                    <Column>
+                        <Text id="102" text="From" />
+                    </Column>
+                    <Column>
+                        <Text id="103" text="Destination" />
+                    </Column>
+                    <Column>
+                        <Text id="104" text="Departure(hrs.)" />
+                    </Column>
+                    <Column>
+                        <Text id="105" text="Arrival(hrs.)" />
+                    </Column>
+                    <Column>
+                        <Text id="106" text="Price (Rs.)" />
+                    </Column>
+                    
+                    
+                </columns>
+                <items>
+              
+                    <ColumnListItem type="Navigation" press="onChangeHeader" id="ValueID">
+                       <cells>
+                        <Text text="{fname}"/> 
+                        <Text text="{from}"/>
+                        <Text text="{destination}"/>
+                        <Text text="{departure}"/>
+                        <Text text="{arrival}"/>
+                       	<ObjectNumber
+									number="{
+										parts:[{path:'price'},{path:'CurrencyCode'}],
+										type: 'sap.ui.model.type.Currency',
+										formatOptions: {showMeasure: false}
+									}"
+									unit="{CurrencyCode}" />
+                       </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            </content>
+            </Page>
+			 <Page id="seats" title="Select Your Seat" titleAlignment="Center">
+              <customHeader>
+			<Bar>
+				<contentLeft>
+                  <Button text="Previous Page" press="onPressPrevious2" class="sapUiLargeMarginLeft" width="200px" icon="sap-icon://nav-back"/>
+				</contentLeft>
+				<contentMiddle>
+</contentMiddle>
+				<contentRight>
+				<Button text="My Profile" press="onPressButton" class="sapUiLargeMarginLeft" width="200px" icon="sap-icon://account"/>	
+				</contentRight>
+			</Bar>
+		</customHeader>
+        <content>
+        <HBox>
+            <VBox class="sapUiLargeMargin">
+            <Text text="{/fname}"/> 
+                        <Text text="From: {/from}"/>
+                        <Text text="To: {/destination}"/>
+                        <Text text="Departure Time: {/departure}"/>
+                        <Text text="Arrival Time: {/arrival}"/>
+                        <Text text= "Price(Rs.): {/price}" />
+                    </VBox>  
+              
+               	<l:VerticalLayout class="sapUiContentPadding">
+                <FlexBox height="25px" alignItems="Start" justifyContent="End"> 
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">  
+                <Label text="A:"  class="sapUiResponsiveMargin" />
+                  <ToggleButton width="50px" text="A1" press="onPress" /> 
+                  <ToggleButton width="50px" text="A2" press="onPress" /> 
+                  <ToggleButton width="50px" text="A3" press="onPress" /> 
+                 </HBox> 
+                 <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="A4" press="onPress" /> 
+                  <ToggleButton width="50px" text="A5" press="onPress" /> 
+                  <ToggleButton width="50px" text="A6" press="onPress" /> 
+                </HBox> 
+                </FlexBox>
+                   
+               <FlexBox height="25px" alignItems="Start" justifyContent="End">
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">
+                <Label text="B:"  class="sapUiResponsiveMargin"/>
+                  <ToggleButton width="50px" text="B1" press="onPress" /> 
+                  <ToggleButton width="50px" text="B2" press="onPress" /> 
+                  <ToggleButton width="50px" text="B3" press="onPress" />
+                </HBox> 
+                <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="B4" press="onPress" /> 
+                  <ToggleButton width="50px" text="B5" press="onPress" /> 
+                  <ToggleButton width="50px" text="B6" press="onPress" /> 
+                </HBox> 
+                </FlexBox>
+                 <FlexBox height="25px" alignItems="Start" justifyContent="End"> 
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">
+                <Label text="C:" class="sapUiResponsiveMargin"/>
+                  <ToggleButton width="50px" text="C1" press="onPress" /> 
+                  <ToggleButton width="50px" text="C2" press="onPress" /> 
+                  <ToggleButton width="50px" text="C3" press="onPress" />
+                </HBox> 
+                   <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="C4" press="onPress" /> 
+                  <ToggleButton width="50px" text="C5" press="onPress" /> 
+                  <ToggleButton width="50px" text="C6" press="onPress" /> 
+                </HBox> 
+                </FlexBox>
+                 <FlexBox height="25px" alignItems="Start" justifyContent="End">
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">
+                <Label text="D:" class="sapUiResponsiveMargin"/>
+                  <ToggleButton width="50px" text="D1" press="onPress" /> 
+                  <ToggleButton width="50px" text="D2" press="onPress" /> 
+                  <ToggleButton width="50px" text="D3" press="onPress" />
+                </HBox> 
+                <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="D4" press="onPress" /> 
+                  <ToggleButton width="50px" text="D5" press="onPress" /> 
+                  <ToggleButton width="50px" text="D6" press="onPress" /> 
+                </HBox> 
+                </FlexBox>
+                <FlexBox height="25px" alignItems="Start" justifyContent="End">
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">
+                <Label text="E:" class="sapUiResponsiveMargin"/>
+                  <ToggleButton width="50px" text="E1" press="onPress" /> 
+                  <ToggleButton width="50px" text="E2" press="onPress" /> 
+                  <ToggleButton width="50px" text="E3" press="onPress" />
+                  </HBox> 
+                   <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="E4" press="onPress" /> 
+                  <ToggleButton width="50px" text="E5" press="onPress" /> 
+                  <ToggleButton width="50px" text="E6" press="onPress" /> 
+                </HBox> 
+                </FlexBox>
+                <FlexBox height="25px" alignItems="Start" justifyContent="End">
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">
+                <Label text="F:" class="sapUiResponsiveMargin"/>
+                  <ToggleButton width="50px" text="F1" press="onPress" /> 
+                  <ToggleButton width="50px" text="F2" press="onPress" /> 
+                  <ToggleButton width="50px" text="F3" press="onPress" />
+                </HBox> 
+                <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="F4" press="onPress" /> 
+                  <ToggleButton width="50px" text="F5" press="onPress" /> 
+                  <ToggleButton width="50px" text="F6" press="onPress" /> 
+                </HBox> 
+                </FlexBox> 
+                <FlexBox height="25px" alignItems="Start" justifyContent="End">
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">
+                <Label text="G:" class="sapUiResponsiveMargin"/>
+                  <ToggleButton width="50px" text="G1" press="onPress" /> 
+                  <ToggleButton width="50px" text="G2" press="onPress" /> 
+                  <ToggleButton width="50px" text="G3" press="onPress" />
+                </HBox> 
+                <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="G4" press="onPress" /> 
+                  <ToggleButton width="50px" text="G5" press="onPress" /> 
+                  <ToggleButton width="50px" text="G6" press="onPress" /> 
+                </HBox> 
+                </FlexBox>
+                <FlexBox height="25px" alignItems="Start" justifyContent="End">
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">
+                <Label text="H:" class="sapUiResponsiveMargin"/>
+                  <ToggleButton width="50px" text="H1" press="onPress" /> 
+                  <ToggleButton width="50px" text="H2" press="onPress" /> 
+                  <ToggleButton width="50px" text="H3" press="onPress" />
+                </HBox> 
+                <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="H4" press="onPress" /> 
+                  <ToggleButton width="50px" text="H5" press="onPress" /> 
+                  <ToggleButton width="50px" text="H6" press="onPress" /> 
+                </HBox> 
+                </FlexBox> 
+                 </l:VerticalLayout>
+                 </HBox>
+                  <Button text="Next Page" press="onClick" class="sapUiSmallMarginBottom"	ariaHasPopup="Dialog" /> 
+        </content>
+    </Page>      
+			 <Page id="details" title="Add Your Deatails" titleAlignment="Center">
+              <customHeader>
+			<Bar>
+				<contentLeft>
+                  <Button text="Previous Page" press="onPressPrevious3" class="sapUiLargeMarginLeft" width="200px" icon="sap-icon://nav-back"/>
+				</contentLeft>
+				<contentMiddle>
+</contentMiddle>
+				<contentRight>
+				<Button text="My Profile" press="onPressButton" class="sapUiLargeMarginLeft" width="200px" icon="sap-icon://account"/>	
+				</contentRight>
+			</Bar>
+		</customHeader>
+        <content>
+        
+        <List headerText="Traveller's detail" class="sapUiSmallMargin" items="{/results}"  >
+        <CustomListItem>
+        <Button text="Add" press="onPress"  width="100px" class="sapUiMediumMargin" icon="sap-icon://add"/>
+         <Button text="Delete" press="onDelete" width="100px" class="sapUiMediumMargin" icon="sap-icon://decline"/>
+        <f:SimpleForm id="SimpleFormChange352"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="4"
+			labelSpanL="3"
+			labelSpanM="4"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="0"
+			emptySpanL="4"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+             <Label text="Traveller's Name" id="name"  required="true"/>
+            <Input value="{name}" />
+            <Label text="Traveller's Age" id="age"  required="true" />
+            <Input value="{age}" width="100px" type="Number"/>
+            <Label text="Gender" />
+             <Select id="gender"  forceSelection="false" selectedKey="{gender}"   required="true">
+					<items>
+						<core:Item text="Male" key="Male"/>
+						<core:Item text="Female" key="Female"/>
+                        <core:Item text="Prefer not to say" key="Notapplicable"/>
+					</items>
+				</Select>   
+                		</f:content>
+		</f:SimpleForm> 	
+		</CustomListItem>
+        	</List>
+            <Button text="Next Page" press="onButtonPress" />
+</content>
+    </Page>
+			 <Page  title="{i18n>PaymentTitle}" titleAlignment="Center" id="payment">
+              <customHeader>
+			<Bar>
+				<contentLeft>
+                  <Button text="Previous Page" press="onPressPrevious4" class="sapUiLargeMarginLeft" width="200px" icon="sap-icon://nav-back"/>
+				</contentLeft>
+				<contentMiddle>
+</contentMiddle>
+				<contentRight>
+				<Button text="My Profile" press="onPressButton" class="sapUiLargeMarginLeft" width="200px" icon="sap-icon://account"/>	
+				</contentRight>
+			</Bar>
+		</customHeader>
+  <content>
+  
+                <f:SimpleForm 
+                id="SimpleFormChange353"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+                <Label text="Card Number"  required="true"/>
+                <Input id="cd"
+               placeholder="XXXX-XXXX-XXXX-XXXX" 
+               width="200px"
+               value="XXXX-XXXX-XXXX-1234">	
+                    </Input>
+                    <Label text="Expiry Date"  required="true" />
+                <Input id="exp" placeholder="XX/XX" width="80px" value="XX/XX">	
+                    </Input>
+                    <Label text="CVV No."  required="true"/>
+                <Input id="Cvv" placeholder="XXX" width="60px" value="XXX">	
+                    </Input><Label text="Card Holder Name"  required="true"  />
+                <Input id="chn"  value="Subhrajit Sen">	
+                    </Input>
+                     <Button text="Pay" press="onPay" icon="sap-icon://save">
+                </Button>
+                    </f:content>
+                    </f:SimpleForm>
+                   
+                    </content>
+                   
+                    </Page>
+		
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+     
+    
+</mvc:View>

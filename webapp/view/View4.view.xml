@@ -1,0 +1,134 @@
+<mvc:View
+    controllerName="project1.controller.View4"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+  <Page id="seats">
+        <content>
+        <HBox>
+            <VBox class="sapUiLargeMargin">
+            <Text text="{/fname}"/> 
+                        <Text text="From: {/from}"/>
+                        <Text text="To: {/destination}"/>
+                        <Text text="Departure Time: {/departure}"/>
+                        <Text text="Arrival Time: {/arrival}"/>
+                        <Text text= "Price(Rs.): {/price}" />
+                    </VBox>  
+              
+               	<l:VerticalLayout class="sapUiContentPadding">
+                <FlexBox height="25px" alignItems="Start" justifyContent="End"> 
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">  
+                <Label text="A:"  class="sapUiResponsiveMargin" />
+                  <ToggleButton width="50px" text="A1" press="onPress" /> 
+                  <ToggleButton width="50px" text="A2" press="onPress" /> 
+                  <ToggleButton width="50px" text="A3" press="onPress" /> 
+                 </HBox> 
+                 <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="A4" press="onPress" /> 
+                  <ToggleButton width="50px" text="A5" press="onPress" /> 
+                  <ToggleButton width="50px" text="A6" press="onPress" /> 
+                </HBox> 
+                </FlexBox>
+                   
+               <FlexBox height="25px" alignItems="Start" justifyContent="End">
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">
+                <Label text="B:"  class="sapUiResponsiveMargin"/>
+                  <ToggleButton width="50px" text="B1" press="onPress" /> 
+                  <ToggleButton width="50px" text="B2" press="onPress" /> 
+                  <ToggleButton width="50px" text="B3" press="onPress" />
+                </HBox> 
+                <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="B4" press="onPress" /> 
+                  <ToggleButton width="50px" text="B5" press="onPress" /> 
+                  <ToggleButton width="50px" text="B6" press="onPress" /> 
+                </HBox> 
+                </FlexBox>
+                 <FlexBox height="25px" alignItems="Start" justifyContent="End"> 
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">
+                <Label text="C:" class="sapUiResponsiveMargin"/>
+                  <ToggleButton width="50px" text="C1" press="onPress" /> 
+                  <ToggleButton width="50px" text="C2" press="onPress" /> 
+                  <ToggleButton width="50px" text="C3" press="onPress" />
+                </HBox> 
+                   <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="C4" press="onPress" /> 
+                  <ToggleButton width="50px" text="C5" press="onPress" /> 
+                  <ToggleButton width="50px" text="C6" press="onPress" /> 
+                </HBox> 
+                </FlexBox>
+                 <FlexBox height="25px" alignItems="Start" justifyContent="End">
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">
+                <Label text="D:" class="sapUiResponsiveMargin"/>
+                  <ToggleButton width="50px" text="D1" press="onPress" /> 
+                  <ToggleButton width="50px" text="D2" press="onPress" /> 
+                  <ToggleButton width="50px" text="D3" press="onPress" />
+                </HBox> 
+                <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="D4" press="onPress" /> 
+                  <ToggleButton width="50px" text="D5" press="onPress" /> 
+                  <ToggleButton width="50px" text="D6" press="onPress" /> 
+                </HBox> 
+                </FlexBox>
+                <FlexBox height="25px" alignItems="Start" justifyContent="End">
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">
+                <Label text="E:" class="sapUiResponsiveMargin"/>
+                  <ToggleButton width="50px" text="E1" press="onPress" /> 
+                  <ToggleButton width="50px" text="E2" press="onPress" /> 
+                  <ToggleButton width="50px" text="E3" press="onPress" />
+                  </HBox> 
+                   <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="E4" press="onPress" /> 
+                  <ToggleButton width="50px" text="E5" press="onPress" /> 
+                  <ToggleButton width="50px" text="E6" press="onPress" /> 
+                </HBox> 
+                </FlexBox>
+                <FlexBox height="25px" alignItems="Start" justifyContent="End">
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">
+                <Label text="F:" class="sapUiResponsiveMargin"/>
+                  <ToggleButton width="50px" text="F1" press="onPress" /> 
+                  <ToggleButton width="50px" text="F2" press="onPress" /> 
+                  <ToggleButton width="50px" text="F3" press="onPress" />
+                </HBox> 
+                <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="F4" press="onPress" /> 
+                  <ToggleButton width="50px" text="F5" press="onPress" /> 
+                  <ToggleButton width="50px" text="F6" press="onPress" /> 
+                </HBox> 
+                </FlexBox> 
+                <FlexBox height="25px" alignItems="Start" justifyContent="End">
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">
+                <Label text="G:" class="sapUiResponsiveMargin"/>
+                  <ToggleButton width="50px" text="G1" press="onPress" /> 
+                  <ToggleButton width="50px" text="G2" press="onPress" /> 
+                  <ToggleButton width="50px" text="G3" press="onPress" />
+                </HBox> 
+                <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="G4" press="onPress" /> 
+                  <ToggleButton width="50px" text="G5" press="onPress" /> 
+                  <ToggleButton width="50px" text="G6" press="onPress" /> 
+                </HBox> 
+                </FlexBox>
+                <FlexBox height="25px" alignItems="Start" justifyContent="End">
+                <HBox class="sapUiResponsiveMargin"  wrap="Wrap" renderType="Bare">
+                <Label text="H:" class="sapUiResponsiveMargin"/>
+                  <ToggleButton width="50px" text="H1" press="onPress" /> 
+                  <ToggleButton width="50px" text="H2" press="onPress" /> 
+                  <ToggleButton width="50px" text="H3" press="onPress" />
+                </HBox> 
+                <HBox class="sapUiResponsiveMargin"> 
+                  <ToggleButton width="50px" text="H4" press="onPress" /> 
+                  <ToggleButton width="50px" text="H5" press="onPress" /> 
+                  <ToggleButton width="50px" text="H6" press="onPress" /> 
+                </HBox> 
+                </FlexBox> 
+                 </l:VerticalLayout>
+                 </HBox>
+                  <Button text="Next Page" press="onClick" /> 
+        </content>
+    </Page>          
+</mvc:View>

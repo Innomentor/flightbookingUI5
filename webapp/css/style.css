@@ -1,0 +1,24 @@
+/* Enter your custom styles here */
+.myBackgroundStyle{
+height : '300px';
+background-image:url('https://static.goindigo.in/content/dam/indigov2/6e-website/aboutus/flight-booking/TicketBooking-Page-Banner.jpg');
+
+};
+.greenTxtHlight {
+    color: green;
+}
+.yellowTxtHlight {
+    color: yellow;
+}
+.redTxtHlight {
+    color: red;
+}
+.column {
+    width: 100%;
+  }
+  
+  @media (min-width: 600px) {
+    .column {
+      width: 50%;
+    }
+  }

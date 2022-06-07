@@ -1,0 +1,42 @@
+<mvc:View
+    controllerName="project1.controller.LogIn"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+>
+
+  <Page class="myBackgroundStyle" title="Log into your Account" titleAlignment="Center">
+            
+				<VBox class="sapUiMediumMarginBottom"  height="100%" alignItems="Center">
+                <HBox height="100%" alignItems="Center">
+                <VBox>
+					<Input class="Input" placeholder="Email id" width="20rem"
+						 tooltip="{i18n>EmplyeeId}" id="user_id" submit="onRegister"/>
+					<HBox>
+					<Input class="sapUiTinyMarginEnd"  placeholder="Password" width="20rem"  
+						type="Password" tooltip="{i18n>EnterPass}" id="password" submit="onRegister"/>
+						<ToggleButton icon="sap-icon://show"  type="Default" press="onPressPassword"/>
+                        </HBox>
+						<HBox>
+					<Button type="Accept" width="9rem" text="Log In" press="onRegister"  class="sapUiMediumMarginEnd"/>
+                    <Button type="Reject" width="9rem" text="Reset" press="onPressResetButton"></Button>
+				</HBox>
+                <Link xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  core:require="{ sapMLib: 'sap/m/library' }" 
+ text="Not registered? Click to Create an Account"
+  class="sapUiSmallMarginTop"
+  press="onPressLink"
+  emphasized="true"
+/>
+                </VBox>
+</HBox>
+                </VBox>
+			
+		
+	</Page>
+</mvc:View>

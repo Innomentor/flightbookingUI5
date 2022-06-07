@@ -1,0 +1,394 @@
+<mvc:View
+    controllerName="project1.controller.View7"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+       <tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<Button id="sideNavigationToggleButton" icon="sap-icon://menu2"
+					type="Transparent" press="onCollapseExpandPress">
+                   
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+				<ToolbarSpacer width="20px" />
+				<ToolbarSpacer />
+				<core:Icon src="sap-icon://approvals">
+				</core:Icon>
+				<Text text="{i18n>ELAPS}" wrapping="false">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Disappear" />
+					</layoutData>
+				</Text>
+				<ToolbarSpacer />
+			
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation id="sideNavigation" expanded="true"
+				selectedItem="Dashboard">
+				<tnt:NavigationList>
+					<tnt:NavigationListItem text="Bookings"
+						icon="sap-icon://employee">
+						<tnt:NavigationListItem text="Upcoming Bookings" hasExpander="false" select="onUBookings" icon="sap-icon://accelerated" />
+                        <tnt:NavigationListItem text="Canceled Bookings" hasExpander="false" select="onCBookings" icon="sap-icon://decline"/>
+                        <tnt:NavigationListItem text="Completed Bookings" hasExpander="false" select="onCOBookings" icon="sap-icon://activities"/>
+                        <tnt:NavigationListItem text="All Bookings" hasExpander="false" select="onABookings" icon="sap-icon://approvals"/>
+					
+					</tnt:NavigationListItem>
+                  
+                   <tnt:NavigationListItem text="Settings"
+						icon="sap-icon://action-settings">
+						<tnt:NavigationListItem text="Change Password" hasExpander="false" select="onSelectPassword" icon="sap-icon://puzzle"/>
+                        <tnt:NavigationListItem text="Update Profile" hasExpander="false"  select="onSelectSetting" icon="sap-icon://action-settings"/>
+                        <tnt:NavigationListItem text="Save Card Details" hasExpander="false" select="onSelectCard" icon="sap-icon://credit-card"/>
+                       
+						
+					</tnt:NavigationListItem>
+					
+					
+					
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList>
+						
+						<tnt:NavigationListItem text="{i18n>LogOut}" icon="sap-icon://log" select="onSelectLogOut"/>
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="navCon">
+			<Page id="p_UBookings" title="Upcoming Bookings"  titleAlignment="Center">
+            <content>
+   <Button text="Back to Booking Page" press="onPressBookingPage" class="sapUiLargeMarginLeft" width="200px" icon="sap-icon://nav-back" />
+
+<Table id="tableID" items="{aValue>/booking}" alternateRowColors="true"  >
+
+
+                <columns>
+                    <Column>
+                        <Text id="101" text="Flight Name" />
+                    </Column>
+                    <Column>
+                        <Text id="102" text="From" />
+                    </Column>
+                    <Column>
+                        <Text id="103" text="Destination" />
+                    </Column>
+                    <Column>
+                        <Text id="104" text="Departure" />
+                    </Column>
+                    <Column>
+                        <Text id="105" text="Arrival" />
+                    </Column>
+                    <Column>
+                        <Text id="106" text="Price (Rs.)" />
+                    </Column>
+                    <Column>
+                        <Text id="107" />
+                    </Column>
+                    
+                </columns>
+                <items>
+              
+                    <ColumnListItem press="onChangeHeader" id="ValueID">
+                        <Text text="{aValue>fname}"/> 
+                        <Text text="{aValue>from}"/>
+                        <Text text="{aValue>destination}"/>
+                        <Text text="{aValue>departure}"/>
+                        <Text text="{aValue>arrival}"/>
+                        <Text text="{aValue>price}"/>
+                       <Button press="onPressCancel" text="Cancel Booking" icon="sap-icon://decline"/>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            </content>        
+			</Page>
+
+			<Page id="p_CBookings" title="Canceled Bookings"  titleAlignment="Center">
+		<content>
+  
+
+<Table id="tableID1" items="{aValue1>/booking1}" alternateRowColors="true"  >
+
+
+                <columns>
+                    <Column>
+                        <Text text="Flight Name" />
+                    </Column>
+                    <Column>
+                        <Text  text="From" />
+                    </Column>
+                    <Column>
+                        <Text  text="Destination" />
+                    </Column>
+                    <Column>
+                        <Text  text="Departure" />
+                    </Column>
+                    <Column>
+                        <Text  text="Arrival" />
+                    </Column>
+                    <Column>
+                        <Text  text="Price (Rs.)" />
+                    </Column>
+                    
+                    
+                </columns>
+                <items>
+              
+                    <ColumnListItem press="onChangeHeader" id="ValueID1">
+                        <Text text="{aValue1>fname}"/> 
+                        <Text text="{aValue1>from}"/>
+                        <Text text="{aValue1>destination}"/>
+                        <Text text="{aValue1>departure}"/>
+                        <Text text="{aValue1>arrival}"/>
+                        <Text text="{aValue1>price}"/>
+                       
+                    </ColumnListItem>
+                </items>
+            </Table>
+            </content>  
+			</Page>
+			<Page id="p_COBookings" title="Completed Bookings"  titleAlignment="Center">
+                   	<content>
+  
+
+<Table id="tableID2" items="{aValue2>/booking2}" alternateRowColors="true"  >
+
+
+                <columns>
+                    <Column>
+                        <Text text="Flight Name" />
+                    </Column>
+                    <Column>
+                        <Text  text="From" />
+                    </Column>
+                    <Column>
+                        <Text  text="Destination" />
+                    </Column>
+                    <Column>
+                        <Text  text="Departure" />
+                    </Column>
+                    <Column>
+                        <Text  text="Arrival" />
+                    </Column>
+                    <Column>
+                        <Text  text="Price (Rs.)" />
+                    </Column>
+                    
+                    
+                </columns>
+                <items>
+              
+                    <ColumnListItem press="onChangeHeader" id="ValueID2">
+                        <Text text="{aValue2>fname}"/> 
+                        <Text text="{aValue2>from}"/>
+                        <Text text="{aValue2>destination}"/>
+                        <Text text="{aValue2>departure}"/>
+                        <Text text="{aValue2>arrival}"/>
+                        <Text text="{aValue2>price}"/>
+                       
+                    </ColumnListItem>
+                </items>
+            </Table>
+            </content>  
+			</Page>
+			<Page id="p_ABookings" title="All Bookings"  titleAlignment="Center" >
+                      	<content>
+  
+
+<Table id="tableID3" items="{/booking3}" alternateRowColors="true"  >
+
+
+                <columns>
+                    <Column>
+                        <Text text="Flight Name" />
+                    </Column>
+                    <Column>
+                        <Text  text="From" />
+                    </Column>
+                    <Column>
+                        <Text  text="Destination" />
+                    </Column>
+                    <Column>
+                        <Text  text="Departure" />
+                    </Column>
+                    <Column>
+                        <Text  text="Arrival" />
+                    </Column>
+                    <Column>
+                        <Text  text="Price (Rs.)" />
+                    </Column>
+                    <Column>
+                        <Text  text="Status" />
+                    </Column>
+                    
+                </columns>
+                <items>
+              
+                    <ColumnListItem press="onChangeHeader" id="ValueID3">
+                        <Text text="{fname}"/> 
+                        <Text text="{from}"/>
+                        <Text text="{destination}"/>
+                        <Text text="{departure}"/>
+                        <Text text="{arrival}"/>
+                        <Text text="{price}"/>
+                         <Text text="{ 
+                         path: 'fname',
+						formatter: '.formatter.getStatus'}"/>
+                       
+                    </ColumnListItem>
+                </items>
+            </Table>
+            </content>  
+			</Page>
+			<Page id="p_SelectPassword" title="Change Your Password"  titleAlignment="Center">
+            <VBox class="sapUiMediumMarginBottom"  height="100%" alignItems="Center">
+                <HBox height="100%" alignItems="Center">
+                <VBox>
+                 <HBox>
+			<Input class="sapUiTinyMarginEnd"  placeholder=" Old Password" width="20rem"  
+						type="Password" tooltip="{i18n>EnterPass}" id="oldpassword" submit="onRegister"/>
+						<ToggleButton icon="sap-icon://show"  type="Default" press="onPressPassword"/>
+			</HBox>
+                <HBox>
+			<Input class="sapUiTinyMarginEnd"  placeholder="Password" width="20rem"  
+						type="Password" tooltip="{i18n>EnterPass}" id="password" submit="onRegister"/>
+						<ToggleButton icon="sap-icon://show"  type="Default" press="onPressPassword"/>
+			</HBox>
+            <HBox>
+                    <Input class="sapUiTinyMarginEnd" placeholder="{i18n>confirmPass}" width="20rem"
+						type="Password" tooltip="{i18n>EnterpassAgain}" id="password2" submit="onRegister"/>
+							<ToggleButton icon="sap-icon://show"  type="Default" press="onPressPassword"/>
+                          </HBox>  
+                          <HBox>
+            	<Button type="Accept" width="9rem" text="Continue" press="onRegister"  class="sapUiMediumMarginEnd"/>
+           <Button type="Reject" width="9rem" text="Reset" press="onPressResetButton"></Button>
+           </HBox>
+            </VBox>
+            </HBox>
+            </VBox>
+            </Page>
+
+			<Page id="p_SelectCard" title="Select Card"  titleAlignment="Center" >
+            <Button text="Update" press="onPressSave" class="sapUiSmallMarginEnd" />
+            <Button text="Delete" press="onPressDelete" class="sapUiSmallMarginEnd" icon="sap-icon://decline"/>
+             <Button text="Add" press="onPressAdd" icon="sap-icon://add"/>
+            <Table id="tableID5" items="{aValue5>/booking5}" alternateRowColors="true" headerText="Your Flights"  >
+
+
+                <columns>
+                    <Column>
+                        <Text  text="Card Number" />
+                    </Column>
+                    <Column>
+                        <Text text="Expiry Date" />
+                    </Column>
+                    <Column>
+                        <Text  text="CVV No." />
+                    </Column>
+                    <Column>
+                        <Text text="Card Holder Name" />
+                    </Column>
+                   
+                    
+                    
+                </columns>
+                <items>
+              
+                    <ColumnListItem type="Navigation" press="onChangeHeader" id="ValueID5">
+                        <Input value="{aValue5>cardnumber}"/> 
+                        <Input value="{aValue5>expiry}"/>
+                        <Input value="{aValue5>cvv}"/>
+                        <Input value="{aValue5>name}"/>
+                      
+                    </ColumnListItem>
+                </items>
+            </Table>
+			</Page>
+			
+			
+			<Page id="p_test_details" title="Test Details" showNavButton = "true" navButtonPress="onTest">
+	
+			</Page>
+			<Page id="p_accountSetting" title="{i18n>AccountSetting}" titleAlignment="Center">
+			  <f:SimpleForm id="SimpleFormChange351"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="10"
+			adjustLabelSpan="false"
+			emptySpanXL="3"
+			emptySpanL="3"
+			emptySpanM="3"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" 
+            >
+            
+			<f:content>
+                  <VBox class="sapUiMediumMarginTop"  height="100%" alignItems="Center">
+                <HBox height="100%" alignItems="Center">
+                <VBox>
+                
+			    <Label text="Change/Add Your phone number:"  class="sapUiSmallMarginEnd" />
+                <Input id="phone"  width="200px" />	
+               
+                
+                <Label text="Change Your email id:" class="sapUiMediumMarginEnd" />
+                <Input id="email"  width="200px" />	
+                
+                <Label text="Change Your Address:"  class="sapUiMediumMarginEnd"  />
+                <Input id="address"  width="200px" />	
+               
+                <Label text="Update your Adhaar Card:"  class="sapUiSmallMarginEnd" />
+                <Input id="card"  width="200px" />	
+               
+                <Button text="Save" press="onPressSave" />
+            </VBox>
+            </HBox>
+            </VBox>
+               </f:content>
+		</f:SimpleForm>
+			</Page>
+			<Page id="testDisplay" title="{i18n>TestDetails}" showNavButton = "true" navButtonPress="onUserDetails">
+			
+				<footer>
+			<OverflowToolbar id="otbFooter">
+			<ToolbarSpacer/>
+			<VBox id="footerV"></VBox>
+			</OverflowToolbar>
+		</footer>
+			</Page>
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+            
+</mvc:View>
+ <!-- <content>
+        
+            <VBox class="sapUiLargeMargin">
+            <Text text="{/fname}"/> 
+                        <Text text="From: {/from}"/>
+                        <Text text="To: {/destination}"/>
+                        <Text text="Departure Time: {/departure}"/>
+                        <Text text="Arrival Time: {/arrival}"/>
+                        <Text text= "Price(Rs.): {/price}" />
+                        <Text text= "Seat No: {/seat}" />
+                        <Text text= "Traveller Name {/tname}" />
+                    </VBox>  
+                  
+        </content> -->
