@@ -33,4 +33,7 @@ A Fiori application.
 
 1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
 
+#### Details:
+This application is created using UI5 and is used to book an air ticket based upon filters and sorting over flights.
+
 
